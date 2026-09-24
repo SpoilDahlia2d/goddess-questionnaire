@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Goddess Dahlia • 9-Stage Protocol of Submission &amp; Devotion</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            cinzel: ['"Cinzel"', 'serif'],
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Montserrat"', 'sans-serif'],
+          },
+          colors: {
+            gold: { 300: '#fde047', 400: '#eab308', 500: '#d4af37', 600: '#ca8a04', 700: '#a16207' },
+            onyx: { 950: '#040406', 900: '#070709', 800: '#0f0f13', 700: '#17171d', 600: '#23232b' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #040406; color: #f1f5f9; min-height: 100vh; overflow-x: hidden; }
+    #bg-video-container { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: -20; }
+    .crossfade-video { min-width: 100%; min-height: 100%; width: auto; height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); object-fit: cover; filter: contrast(120%) brightness(65%); transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1); }
+    .gold-glow { text-shadow: 0 0 25px rgba(212, 175, 55, 0.65); }
+    .gold-border { border: 1px solid rgba(212, 175, 55, 0.35); box-shadow: 0 0 35px rgba(212, 175, 55, 0.08); }
+    .gold-border-focus:focus { border-color: #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+    .input-error { border-color: #f43f5e !important; box-shadow: 0 0 15px rgba(244, 63, 94, 0.4) !important; }
+    .findom-radio:checked + label { border-color: #d4af37; background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(147, 51, 234, 0.15) 100%); color: #fef08a; box-shadow: 0 0 25px rgba(212, 175, 55, 0.35); transform: scale(1.01); }
+    .pay-badge-check:checked + label { border-color: #d4af37; background-color: rgba(212, 175, 55, 0.25); color: #fef08a; box-shadow: 0 0 15px rgba(212, 175, 55, 0.25); }
+    .btn-gold-shimmer { background: linear-gradient(135deg, #d4af37 0%, #fef08a 40%, #c59b27 80%, #997316 100%); color: #09090b; font-weight: 800; letter-spacing: 0.05em; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 25px rgba(212, 175, 55, 0.35); }
+    .btn-gold-shimmer:hover { box-shadow: 0 0 35px rgba(212, 175, 55, 0.7); transform: translateY(-2px); filter: brightness(1.08); }
+    .sound-bar { display: inline-block; width: 3px; height: 12px; background-color: #d4af37; border-radius: 2px; animation: soundWave 1.2s infinite ease-in-out alternate; }
+    .sound-bar:nth-child(2) { animation-delay: 0.2s; height: 16px; }
+    .sound-bar:nth-child(3) { animation-delay: 0.4s; height: 10px; }
+    .sound-bar:nth-child(4) { animation-delay: 0.1s; height: 14px; }
+    @keyframes soundWave { 0% { transform: scaleY(0.4); } 100% { transform: scaleY(1.3); } }
+    .shake { animation: shake 0.4s ease-in-out; }
+    @keyframes shake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-8px); } 40%, 80% { transform: translateX(8px); } }
+    .step-section { transition: opacity 0.35s ease, transform 0.35s ease; }
+    .step-section.hidden-step { display: none; opacity: 0; transform: translateY(12px); }
+    .obsession-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, #d4af37, #fef08a); cursor: pointer; box-shadow: 0 0 12px rgba(212,175,55,0.6); }
+    .obsession-slider { -webkit-appearance: none; appearance: none; height: 6px; background: linear-gradient(90deg, #17171d 0%, #d4af37 100%); border-radius: 3px; outline: none; cursor: pointer; }
+    @keyframes pulse-gold { 0%, 100% { box-shadow: 0 0 0 0 rgba(212,175,55,0.4); } 50% { box-shadow: 0 0 0 10px rgba(212,175,55,0); } }
+    .selfie-pulse { animation: pulse-gold 2s infinite; }
+  </style>
+</head>
+<body class="font-sans antialiased p-4 md:p-8 flex flex-col items-center justify-center min-h-screen relative">
+
+  <div id="bg-video-container">
+    <video id="bg-video-A" class="crossfade-video opacity-40" autoplay muted playsinline>
+      <source src="/assets/video1.mp4" type="video/mp4">
+    </video>
+    <video id="bg-video-B" class="crossfade-video opacity-0" muted playsinline></video>
+  </div>
+  <div class="fixed inset-0 -z-10 bg-gradient-to-b from-black/85 via-onyx-950/75 to-black/95 pointer-events-none"></div>
+
+  <div class="fixed top-4 right-4 z-50 flex items-center gap-2">
+    <a href="https://throne.me/" target="_blank" class="px-3 py-1.5 rounded-full bg-gold-500/20 hover:bg-gold-500/30 border border-gold-500/50 text-gold-300 text-xs font-bold backdrop-blur-md transition flex items-center gap-1.5 shadow-xl">
+      <span>👑</span><span class="hidden sm:inline">Throne Wishlist</span>
+    </a>
+    <button id="audio-toggle-btn" class="px-3.5 py-1.5 rounded-full bg-onyx-800/85 hover:bg-onyx-700/85 border border-gold-500/40 text-gold-300 text-xs font-bold backdrop-blur-md transition flex items-center gap-2 shadow-xl">
+      <span id="sound-icon">🔊</span>
+      <span id="audio-text">Voice: ON</span>
+      <span id="audio-animation" class="flex items-center gap-0.5 ml-1">
+        <span class="sound-bar"></span><span class="sound-bar"></span><span class="sound-bar"></span><span class="sound-bar"></span>
+      </span>
+    </button>
+  </div>
+
+  <audio id="voice-audio" loop preload="auto">
+    <source src="/assets/voice.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="w-full max-w-2xl relative z-10 my-4">
+
+    <!-- Header / Goddess Profile -->
+    <div class="text-center mb-8">
+      <div class="relative inline-block mb-4">
+        <div class="w-28 h-28 md:w-32 md:h-32 rounded-full p-1 bg-gradient-to-tr from-gold-600 via-gold-400 to-purple-600 shadow-2xl shadow-gold-500/40 mx-auto overflow-hidden">
+          <img id="avatar-img" src="/assets/profile.jpg?v=final4" alt="Goddess Dahlia" class="w-full h-full object-cover rounded-full filter contrast-125">
+        </div>
+        <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-black border border-gold-500 px-3.5 py-0.5 rounded-full text-[9px] font-bold text-gold-400 tracking-widest uppercase shadow-xl whitespace-nowrap">
+          👑 GODDESS DAHLIA
+        </div>
+      </div>
+      <h1 class="font-cinzel text-3xl md:text-5xl font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200 uppercase gold-glow">Goddess Dahlia</h1>
+      <p class="font-cinzel text-xs md:text-sm tracking-[0.25em] text-purple-300 uppercase mt-2 font-bold">Solemn 9-Stage Protocol of Submission &amp; Devotion</p>
+      <div class="mt-4 p-4 rounded-2xl bg-onyx-900/85 border border-gold-500/25 max-w-lg mx-auto backdrop-blur-md shadow-xl">
+        <p class="text-xs md:text-sm text-slate-300 italic font-serif leading-relaxed">«Money is the purest metric of your submission. Only those ready for total financial surrender have the privilege of approaching my Throne.»</p>
+      </div>
+      <div class="flex items-center justify-center gap-3 mt-4 text-xs">
+        <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-950/70 border border-emerald-700/60 text-emerald-300 font-semibold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>Throne Intake Live
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-purple-950/70 border border-purple-800/60 text-purple-300 font-semibold">⚡ 9-Stage Complete Dossier</span>
+      </div>
+    </div>
+
+    <!-- Stepper Progress Bar (9 Stages) -->
+    <div class="mb-6 bg-onyx-800/90 rounded-2xl p-4 border border-gold-500/25 backdrop-blur-md shadow-xl">
+      <div class="flex items-center justify-between text-xs font-cinzel font-bold mb-2">
+        <span id="step-label" class="text-gold-400 uppercase tracking-wider">Stage 1 of 9: Devotee Identity</span>
+        <span id="step-percentage" class="text-slate-400 font-mono">11%</span>
+      </div>
+      <div class="w-full bg-onyx-700 h-2 rounded-full overflow-hidden p-0.5 border border-onyx-600">
+        <div id="progress-bar-fill" class="h-full bg-gradient-to-r from-gold-500 to-amber-300 rounded-full transition-all duration-500" style="width: 11%"></div>
+      </div>
+      <div class="grid grid-cols-3 sm:grid-cols-9 gap-1 mt-3 text-[8px] uppercase font-bold text-center">
+        <div id="dot-1" class="text-gold-400">1. Identity</div>
+        <div id="dot-2" class="text-slate-500">2. Wealth</div>
+        <div id="dot-3" class="text-slate-500">3. Obsession</div>
+        <div id="dot-4" class="text-slate-500">4. Confession</div>
+        <div id="dot-5" class="text-slate-500">5. Discipline</div>
+        <div id="dot-6" class="text-slate-500">6. Rituals</div>
+        <div id="dot-7" class="text-slate-500">7. Selfie</div>
+        <div id="dot-8" class="text-slate-500">8. Penalties</div>
+        <div id="dot-9" class="text-slate-500">9. Covenant</div>
+      </div>
+    </div>
+
+    <!-- Form Container -->
+    <div id="form-container" class="bg-onyx-800/90 rounded-3xl gold-border p-6 md:p-10 backdrop-blur-xl transition-all duration-300 relative shadow-2xl overflow-hidden">
+      <div class="absolute -top-24 -right-24 w-48 h-48 bg-purple-600/25 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-gold-500/15 rounded-full blur-3xl pointer-events-none"></div>
+      <div id="alert-banner" class="hidden mb-6 p-4 rounded-xl text-xs md:text-sm font-semibold"></div>
+
+      <form id="questionnaire-form" novalidate>
+
+        <!-- STAGE 1: IDENTITY & CONTACT -->
+        <div id="step-1" class="step-section space-y-5">
+          <div class="pb-3 border-b border-onyx-700">
+            <h2 class="font-cinzel text-lg font-bold text-gold-300 tracking-wide uppercase">Stage 1: Devotee Identity &amp; Contact</h2>
+            <p class="text-xs text-slate-400 mt-1">State your identity and contacts truthfully. Every field marked with <span class="text-gold-400">*</span> is strictly mandatory.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="md:col-span-2">
+              <label for="slaveName" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Chosen Devotee Name / Slave Title <span class="text-gold-400">*</span></label>
+              <input type="text" id="slaveName" name="slaveName" required placeholder="e.g. Wallet #07, Paypig Marco, Owned Sub..." class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 placeholder-slate-500 outline-none gold-border-focus transition">
+            </div>
+            <div>
+              <label for="discordTag" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Discord Username <span class="text-gold-400">*</span></label>
+              <input type="text" id="discordTag" name="discordTag" required placeholder="e.g. @username or nick#0000" class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 placeholder-slate-500 outline-none gold-border-focus transition">
+            </div>
+            <div>
+              <label for="phoneWhatsapp" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Phone / WhatsApp Number <span class="text-gold-400">*</span></label>
+              <input type="tel" id="phoneWhatsapp" name="phoneWhatsapp" required placeholder="e.g. +39 333 1234567 or +1..." class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 placeholder-slate-500 outline-none gold-border-focus transition">
+              <p class="text-[10px] text-slate-500 mt-1">Include country code. Used only for the Goddess to summon you.</p>
+            </div>
+            <div>
+              <label for="telegramHandle" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Telegram Handle (Optional)</label>
+              <input type="text" id="telegramHandle" name="telegramHandle" placeholder="e.g. @your_telegram" class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 placeholder-slate-500 outline-none gold-border-focus transition">
+            </div>
+            <div>
+              <label for="age" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Age (Must be 18+) <span class="text-gold-400">*</span></label>
+              <input type="number" id="age" name="age" min="18" max="99" required placeholder="e.g. 28" class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 placeholder-slate-500 outline-none gold-border-focus transition">
+            </div>
+            <div class="md:col-span-2">
+              <label for="occupation" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Profession / Primary Income Source <span class="text-gold-400">*</span></label>
+              <input type="text" id="occupation" name="occupation" required placeholder="e.g. Senior Software Engineer, Executive, Finance..." class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 placeholder-slate-500 outline-none gold-border-focus transition">
+            </div>
+            <div class="md:col-span-2">
+              <label for="country" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Country of Residence <span class="text-gold-400">*</span></label>
+              <input type="text" id="country" name="country" required placeholder="e.g. Italy, USA, Germany, UK..." class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 placeholder-slate-500 outline-none gold-border-focus transition">
+            </div>
+          </div>
+          <div class="pt-4 flex justify-end">
+            <button type="button" id="btn-next-1" class="py-3.5 px-8 rounded-2xl btn-gold-shimmer font-cinzel text-xs uppercase tracking-wider font-extrabold flex items-center gap-2 cursor-pointer">
+              <span>Next: Wealth Surrender</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- STAGE 2: FINANCIAL SURRENDER -->
+        <div id="step-2" class="step-section hidden-step space-y-6">
+          <div class="pb-3 border-b border-onyx-700">
+            <h2 class="font-cinzel text-lg font-bold text-gold-300 tracking-wide uppercase">Stage 2: Financial Capacity &amp; Wealth Surrender</h2>
+            <p class="text-xs text-slate-400 mt-1">Specify your financial dedication. Your ranking before the Throne depends on your total commitment.</p>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">Monthly Dedicated Tribute Budget <span class="text-gold-400">*</span></label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div><input type="radio" id="b1" name="monthlyBudget" value="100€ - 250€ / mo (Initiate Paypig)" class="hidden findom-radio" required checked><label for="b1" class="flex flex-col p-4 rounded-2xl bg-onyx-700/60 border border-onyx-600 cursor-pointer hover:border-gold-500/50 transition"><span class="text-sm font-bold text-slate-100">💸 100€ - 250€ / month</span><span class="text-xs text-slate-400 mt-1">Initiate Tier • Testing devotion</span></label></div>
+              <div><input type="radio" id="b2" name="monthlyBudget" value="250€ - 500€ / mo (Dedicated Devotee)" class="hidden findom-radio"><label for="b2" class="flex flex-col p-4 rounded-2xl bg-onyx-700/60 border border-onyx-600 cursor-pointer hover:border-gold-500/50 transition"><span class="text-sm font-bold text-slate-100">💰 250€ - 500€ / month</span><span class="text-xs text-slate-400 mt-1">Dedicated Tier • Steady flow</span></label></div>
+              <div><input type="radio" id="b3" name="monthlyBudget" value="500€ - 1.000€ / mo (Personal Servant)" class="hidden findom-radio"><label for="b3" class="flex flex-col p-4 rounded-2xl bg-onyx-700/60 border border-onyx-600 cursor-pointer hover:border-gold-500/50 transition"><span class="text-sm font-bold text-gold-300">👑 500€ - 1,000€ / month</span><span class="text-xs text-slate-400 mt-1">Personal Servant • Priority access</span></label></div>
+              <div><input type="radio" id="b4" name="monthlyBudget" value="1.000€+ / mo (Unlimited Wallet / VIP)" class="hidden findom-radio"><label for="b4" class="flex flex-col p-4 rounded-2xl bg-onyx-700/60 border border-gold-500/40 cursor-pointer hover:border-gold-400 transition"><span class="text-sm font-bold text-gold-400">💎 1,000€+ / month</span><span class="text-xs text-gold-300/70 mt-1">Unlimited Wallet • VIP Status</span></label></div>
+            </div>
+          </div>
+          <div>
+            <label for="savingsSacrifice" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Portion of Discretionary Income Dedicated to Goddess <span class="text-gold-400">*</span></label>
+            <select id="savingsSacrifice" name="savingsSacrifice" required class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 outline-none gold-border-focus transition">
+              <option value="15% - 25% of Discretionary Income">15% - 25% of Disposable Income</option>
+              <option value="25% - 50% of Discretionary Income" selected>25% - 50% of Disposable Income</option>
+              <option value="50% - 75% of Discretionary Income (Heavy Drain)">50% - 75% of Disposable Income (Heavy Drain)</option>
+              <option value="Total Financial Surrender / Whatever the Goddess Decides">Total Financial Surrender (Whatever the Goddess Decides)</option>
+            </select>
+          </div>
+          <div>
+            <label for="netMonthlyIncome" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Approximate Net Monthly Income (Optional)</label>
+            <select id="netMonthlyIncome" name="netMonthlyIncome" class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 outline-none gold-border-focus transition">
+              <option value="Prefer not to say">Prefer not to say</option>
+              <option value="Under 1,500€ / mo">Under 1,500€ / mo</option>
+              <option value="1,500€ - 2,500€ / mo" selected>1,500€ - 2,500€ / mo</option>
+              <option value="2,500€ - 4,000€ / mo">2,500€ - 4,000€ / mo</option>
+              <option value="4,000€ - 7,000€ / mo">4,000€ - 7,000€ / mo</option>
+              <option value="7,000€+ / mo (High Earner)">7,000€+ / mo (High Earner)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">Payment Channels Available (Select at least 1) <span class="text-gold-400">*</span></label>
+            <div id="paymentMethodsGroup" class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              <div><input type="checkbox" id="p_throne" name="paymentMethods" value="Throne / Wishlist" class="hidden pay-badge-check" checked><label for="p_throne" class="flex items-center justify-center p-3 rounded-xl bg-onyx-700/60 border border-onyx-600 text-xs font-semibold cursor-pointer hover:bg-onyx-700 transition">👑 Throne Wishlist</label></div>
+              <div><input type="checkbox" id="p_rev" name="paymentMethods" value="Revolut" class="hidden pay-badge-check" checked><label for="p_rev" class="flex items-center justify-center p-3 rounded-xl bg-onyx-700/60 border border-onyx-600 text-xs font-semibold cursor-pointer hover:bg-onyx-700 transition">⚡ Revolut</label></div>
+              <div><input type="checkbox" id="p_pp" name="paymentMethods" value="PayPal Friends &amp; Family" class="hidden pay-badge-check"><label for="p_pp" class="flex items-center justify-center p-3 rounded-xl bg-onyx-700/60 border border-onyx-600 text-xs font-semibold cursor-pointer hover:bg-onyx-700 transition">🅿️ PayPal (F&amp;F)</label></div>
+              <div><input type="checkbox" id="p_crypto" name="paymentMethods" value="Crypto (USDT / BTC / ETH)" class="hidden pay-badge-check"><label for="p_crypto" class="flex items-center justify-center p-3 rounded-xl bg-onyx-700/60 border border-onyx-600 text-xs font-semibold cursor-pointer hover:bg-onyx-700 transition">🪙 Crypto</label></div>
+              <div><input type="checkbox" id="p_bank" name="paymentMethods" value="Instant Wire / SEPA" class="hidden pay-badge-check"><label for="p_bank" class="flex items-center justify-center p-3 rounded-xl bg-onyx-700/60 border border-onyx-600 text-xs font-semibold cursor-pointer hover:bg-onyx-700 transition">🏦 Wire Transfer</label></div>
+              <div><input type="checkbox" id="p_gift" name="paymentMethods" value="Gift Cards (Amazon / Apple)" class="hidden pay-badge-check"><label for="p_gift" class="flex items-center justify-center p-3 rounded-xl bg-onyx-700/60 border border-onyx-600 text-xs font-semibold cursor-pointer hover:bg-onyx-700 transition">🎁 Gift Cards</label></div>
+            </div>
+          </div>
+          <div class="pt-4 flex items-center justify-between">
+            <button type="button" id="btn-prev-2" class="py-3 px-6 rounded-2xl border border-onyx-600 text-slate-300 hover:text-gold-300 font-cinzel text-xs uppercase tracking-wider transition">❮ Back</button>
+            <button type="button" id="btn-next-2" class="py-3.5 px-8 rounded-2xl btn-gold-shimmer font-cinzel text-xs uppercase tracking-wider font-extrabold flex items-center gap-2 cursor-pointer"><span>Next: Obsession Profile</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></button>
+          </div>
+        </div>
+
+        <!-- STAGE 3: OBSESSION PROFILE -->
+        <div id="step-3" class="step-section hidden-step space-y-6">
+          <div class="pb-3 border-b border-onyx-700">
+            <h2 class="font-cinzel text-lg font-bold text-gold-300 tracking-wide uppercase">Stage 3: Obsession Profile &amp; Submission Style</h2>
+            <p class="text-xs text-slate-400 mt-1">Map your psychological depth. You cannot proceed without completing your triggers truthfully.</p>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">Submission Dynamic Preferred <span class="text-gold-400">*</span></label>
+            <div class="space-y-2.5">
+              <div><input type="radio" id="d1" name="devotionType" value="Silent Paypig (unconditional tribute without demands)" class="hidden findom-radio" required checked><label for="d1" class="flex items-center justify-between p-3.5 rounded-xl bg-onyx-700/60 border border-onyx-600 cursor-pointer hover:border-gold-500/50 transition text-xs md:text-sm"><span class="font-semibold text-slate-100">🤫 Silent Paypig</span><span class="text-slate-400 text-xs">Unconditional devotion in pure silence</span></label></div>
+              <div><input type="radio" id="d2" name="devotionType" value="Drain Sessions &amp; Financial Humiliation" class="hidden findom-radio"><label for="d2" class="flex items-center justify-between p-3.5 rounded-xl bg-onyx-700/60 border border-onyx-600 cursor-pointer hover:border-gold-500/50 transition text-xs md:text-sm"><span class="font-semibold text-slate-100">🔥 Drain Sessions &amp; Verbal Supremacy</span><span class="text-slate-400 text-xs">High-intensity draining sessions</span></label></div>
+              <div><input type="radio" id="d3" name="devotionType" value="Budget Oversight &amp; Daily Tasks" class="hidden findom-radio"><label for="d3" class="flex items-center justify-between p-3.5 rounded-xl bg-onyx-700/60 border border-onyx-600 cursor-pointer hover:border-gold-500/50 transition text-xs md:text-sm"><span class="font-semibold text-slate-100">⛓️ Budget Oversight &amp; Daily Tasks</span><span class="text-slate-400 text-xs">Surrendering financial autonomy</span></label></div>
+              <div><input type="radio" id="d4" name="devotionType" value="Total Financial Property / Human Asset" class="hidden findom-radio"><label for="d4" class="flex items-center justify-between p-3.5 rounded-xl bg-onyx-700/60 border border-onyx-600 cursor-pointer hover:border-gold-500/50 transition text-xs md:text-sm"><span class="font-semibold text-slate-100">🧎 Total Property &amp; Human Asset</span><span class="text-slate-400 text-xs">Complete surrender of ego and wealth</span></label></div>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">Obsession Intensity Level <span class="text-gold-400">*</span></label>
+            <div class="p-4 rounded-2xl bg-onyx-700/50 border border-onyx-600">
+              <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+                <span>😐 Casual</span>
+                <span id="obsession-label" class="text-gold-400 font-bold text-sm">🔥 Deeply Addicted (7/10)</span>
+                <span>💎 Consumed</span>
+              </div>
+              <input type="range" id="obsessionLevel" name="obsessionLevel" min="1" max="10" value="7" class="obsession-slider w-full">
+            </div>
+          </div>
+          <div>
+            <label for="findomExperience" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Findom Experience History <span class="text-gold-400">*</span></label>
+            <select id="findomExperience" name="findomExperience" required class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 outline-none gold-border-focus transition">
+              <option value="Completely new — first time submitting to a Goddess">🌱 Completely new — this is my first time</option>
+              <option value="Less than 6 months experience in findom" selected>6 months or less experience</option>
+              <option value="1-2 years of findom devotion">1-2 years of findom devotion</option>
+              <option value="3-5 years — seasoned submissive">3-5 years — seasoned submissive</option>
+              <option value="5+ years — deeply conditioned paypig">5+ years — deeply conditioned paypig</option>
+            </select>
+          </div>
+          <div>
+            <label for="weaknesses" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Psychological Weaknesses &amp; Craving Triggers <span class="text-gold-400">*</span></label>
+            <textarea id="weaknesses" name="weaknesses" rows="3" required placeholder="What are your deepest mental triggers? (e.g. countdown drain, being ignored until tribute, humiliation, strict denial, seeing Her smile after you send...)" class="w-full px-4 py-3 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 placeholder-slate-500 outline-none gold-border-focus transition resize-none"></textarea>
+            <p class="text-[10px] text-slate-500 mt-1">Minimum 15 characters required. Nonsense characters are rejected.</p>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">What happens when you see Goddess Dahlia? <span class="text-gold-400">*</span></label>
+            <div id="goddessEffectGroup" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div><input type="checkbox" id="r1" name="goddessEffect" value="Immediate urge to tribute" class="hidden pay-badge-check" checked><label for="r1" class="flex items-center p-3 rounded-xl bg-onyx-700/60 border border-onyx-600 text-xs font-semibold cursor-pointer hover:bg-onyx-700 transition gap-2">💸 Immediate urge to tribute</label></div>
+              <div><input type="checkbox" id="r2" name="goddessEffect" value="Heart races — lose all self-control" class="hidden pay-badge-check"><label for="r2" class="flex items-center p-3 rounded-xl bg-onyx-700/60 border border-onyx-600 text-xs font-semibold cursor-pointer hover:bg-onyx-700 transition gap-2">💓 Heart races — lose all self-control</label></div>
+              <div><input type="checkbox" id="r3" name="goddessEffect" value="Total brain shutdown — wallet opens automatically" class="hidden pay-badge-check"><label for="r3" class="flex items-center p-3 rounded-xl bg-onyx-700/60 border border-onyx-600 text-xs font-semibold cursor-pointer hover:bg-onyx-700 transition gap-2">🧠 Brain shutdown — wallet auto-opens</label></div>
+              <div><input type="checkbox" id="r4" name="goddessEffect" value="Desire to confess everything and be judged" class="hidden pay-badge-check"><label for="r4" class="flex items-center p-3 rounded-xl bg-onyx-700/60 border border-onyx-600 text-xs font-semibold cursor-pointer hover:bg-onyx-700 transition gap-2">🙏 Desire to confess and be judged</label></div>
+            </div>
+          </div>
+          <div class="pt-4 flex items-center justify-between">
+            <button type="button" id="btn-prev-3" class="py-3 px-6 rounded-2xl border border-onyx-600 text-slate-300 hover:text-gold-300 font-cinzel text-xs uppercase tracking-wider transition">❮ Back</button>
+            <button type="button" id="btn-next-3" class="py-3.5 px-8 rounded-2xl btn-gold-shimmer font-cinzel text-xs uppercase tracking-wider font-extrabold flex items-center gap-2 cursor-pointer"><span>Next: Financial Confession</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></button>
+          </div>
+        </div>
+
+        <!-- STAGE 4: FINANCIAL CONFESSION -->
+        <div id="step-4" class="step-section hidden-step space-y-6">
+          <div class="pb-3 border-b border-onyx-700">
+            <h2 class="font-cinzel text-lg font-bold text-gold-300 tracking-wide uppercase">Stage 4: Financial Confession &amp; Milestones</h2>
+            <p class="text-xs text-slate-400 mt-1">Confess your financial history truthfully. The Throne demands genuine admission.</p>
+          </div>
+          <div>
+            <label for="totalSentPast" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Total Amount Ever Sent to Goddesses (Lifetime) <span class="text-gold-400">*</span></label>
+            <select id="totalSentPast" name="totalSentPast" required class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 outline-none gold-border-focus transition">
+              <option value="First time — nothing sent yet">🌱 First time — nothing sent yet</option>
+              <option value="Under 500€ total lifetime" selected>Under 500€ total lifetime</option>
+              <option value="500€ - 2,000€ total lifetime">500€ - 2,000€ total lifetime</option>
+              <option value="2,000€ - 5,000€ total lifetime">2,000€ - 5,000€ total lifetime</option>
+              <option value="5,000€ - 15,000€ total lifetime">5,000€ - 15,000€ total lifetime</option>
+              <option value="15,000€+ total lifetime (Seasoned Drain Victim)">15,000€+ lifetime — seasoned drain victim</option>
+            </select>
+          </div>
+          <div>
+            <label for="tributeMilestone" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Lifetime Tribute Goal For Goddess Dahlia's Throne <span class="text-gold-400">*</span></label>
+            <select id="tributeMilestone" name="tributeMilestone" required class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 outline-none gold-border-focus transition">
+              <option value="1,000€ Bronze Devotee Milestone">🥉 1,000€ Bronze Devotee Milestone</option>
+              <option value="3,000€ Silver Asset Milestone" selected>🥈 3,000€ Silver Asset Milestone</option>
+              <option value="5,000€ Gold Slave Milestone">🥇 5,000€ Gold Slave Milestone</option>
+              <option value="10,000€+ Sovereign Diamond Lifetime Tier">💎 10,000€+ Sovereign Diamond Lifetime Tier</option>
+            </select>
+          </div>
+          <div class="p-4 rounded-2xl bg-gradient-to-br from-purple-950/60 to-onyx-800/80 border border-purple-700/40">
+            <label for="financialConfession" class="block text-xs font-bold uppercase tracking-wider text-purple-300 mb-2">🕯️ Confess Your Financial Shame <span class="text-gold-400">*</span></label>
+            <p class="text-xs text-slate-400 mb-2">Have you hidden findom spending? Lied about money? Empty your chest to the Goddess.</p>
+            <textarea id="financialConfession" name="financialConfession" rows="3" required placeholder="e.g. I have spent money I told no one about, deleted receipts out of shame, or obsessed over draining myself for a superior woman..." class="w-full px-4 py-3 rounded-xl bg-onyx-700/80 border border-purple-700/40 text-sm text-slate-100 placeholder-slate-500 outline-none gold-border-focus transition resize-none"></textarea>
+            <p class="text-[10px] text-slate-500 mt-1">Minimum 15 characters required.</p>
+          </div>
+          <div>
+            <label for="specialOccasions" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Celebratory Tribute Commitments <span class="text-gold-400">*</span></label>
+            <select id="specialOccasions" name="specialOccasions" required class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 outline-none gold-border-focus transition">
+              <option value="Goddess Birthday &amp; Payday Surrenders" selected>Goddess Birthday &amp; Payday Surrenders</option>
+              <option value="Holiday Luxury Offerings on Throne">Holiday Luxury Offerings on Throne</option>
+              <option value="Monthly Devotion Anniversaries">Monthly Devotion Anniversaries</option>
+              <option value="All Special Occasions + Spontaneous Surprises">All Special Occasions + Spontaneous Surprises</option>
+            </select>
+          </div>
+          <div class="pt-4 flex items-center justify-between">
+            <button type="button" id="btn-prev-4" class="py-3 px-6 rounded-2xl border border-onyx-600 text-slate-300 hover:text-gold-300 font-cinzel text-xs uppercase tracking-wider transition">❮ Back</button>
+            <button type="button" id="btn-next-4" class="py-3.5 px-8 rounded-2xl btn-gold-shimmer font-cinzel text-xs uppercase tracking-wider font-extrabold flex items-center gap-2 cursor-pointer"><span>Next: Discipline &amp; Tasks</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></button>
+          </div>
+        </div>
+
+        <!-- STAGE 5: DISCIPLINE & TASKS -->
+        <div id="step-5" class="step-section hidden-step space-y-6">
+          <div class="pb-3 border-b border-onyx-700">
+            <h2 class="font-cinzel text-lg font-bold text-gold-300 tracking-wide uppercase">Stage 5: Discipline, Oversight &amp; Task Protocol</h2>
+            <p class="text-xs text-slate-400 mt-1">Surrendering autonomy to the total discipline of the Goddess.</p>
+          </div>
+          <div>
+            <label for="spendingApproval" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Personal Spending Oversight &amp; Accountability <span class="text-gold-400">*</span></label>
+            <select id="spendingApproval" name="spendingApproval" required class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 outline-none gold-border-focus transition">
+              <option value="Full Financial Accountability (Reporting major expenditures for review)" selected>Full Financial Accountability (Reporting major personal expenditures for review)</option>
+              <option value="Luxury Spending Oversight (Asking Goddess permission before buying luxuries)">Luxury Spending Oversight (Asking Goddess permission before buying non-essentials)</option>
+              <option value="Fixed Tribute Surrender (Self-managed living with unwavering tribute priority)">Fixed Tribute Surrender (Self-managed living with unwavering tribute priority)</option>
+            </select>
+          </div>
+          <div>
+            <label for="tributeFrequency" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Preferred Tribute Frequency <span class="text-gold-400">*</span></label>
+            <select id="tributeFrequency" name="tributeFrequency" required class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 outline-none gold-border-focus transition">
+              <option value="Daily Micro-Tributes &amp; Rituals">Daily Micro-Tributes &amp; Rituals</option>
+              <option value="Weekly Scheduled Tributes" selected>Weekly Scheduled Tributes</option>
+              <option value="Bi-Weekly Paycheck Tribute">Bi-Weekly Paycheck Tribute</option>
+              <option value="Monthly Lump Sum Surrender">Monthly Lump Sum Surrender</option>
+              <option value="Spontaneous on Demand">Spontaneous on Demand</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">Which humiliation tasks would you complete if ordered? (Select at least 1) <span class="text-gold-400">*</span></label>
+            <div id="humiliationTasksGroup" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div><input type="checkbox" id="t1" name="humiliationTasks" value="Write submission lines 100x" class="hidden pay-badge-check" checked><label for="t1" class="flex items-center p-3 rounded-xl bg-onyx-700/60 border border-onyx-600 text-xs font-semibold cursor-pointer hover:bg-onyx-700 transition gap-2">✍️ Write submission lines 100x</label></div>
+              <div><input type="checkbox" id="t2" name="humiliationTasks" value="Kneel before a photo of the Goddess" class="hidden pay-badge-check"><label for="t2" class="flex items-center p-3 rounded-xl bg-onyx-700/60 border border-onyx-600 text-xs font-semibold cursor-pointer hover:bg-onyx-700 transition gap-2">🙇 Kneel before a photo of Goddess</label></div>
+              <div><input type="checkbox" id="t3" name="humiliationTasks" value="Set Goddess as phone wallpaper and lock screen" class="hidden pay-badge-check"><label for="t3" class="flex items-center p-3 rounded-xl bg-onyx-700/60 border border-onyx-600 text-xs font-semibold cursor-pointer hover:bg-onyx-700 transition gap-2">📱 Goddess as phone wallpaper</label></div>
+              <div><input type="checkbox" id="t4" name="humiliationTasks" value="Anonymous public tribute post on social media" class="hidden pay-badge-check"><label for="t4" class="flex items-center p-3 rounded-xl bg-onyx-700/60 border border-onyx-600 text-xs font-semibold cursor-pointer hover:bg-onyx-700 transition gap-2">📣 Anonymous tribute post</label></div>
+              <div><input type="checkbox" id="t5" name="humiliationTasks" value="Send proof screenshot on demand" class="hidden pay-badge-check" checked><label for="t5" class="flex items-center p-3 rounded-xl bg-onyx-700/60 border border-onyx-600 text-xs font-semibold cursor-pointer hover:bg-onyx-700 transition gap-2">📸 Send proof screenshot on demand</label></div>
+              <div><input type="checkbox" id="t6" name="humiliationTasks" value="Daily voice note worship message" class="hidden pay-badge-check"><label for="t6" class="flex items-center p-3 rounded-xl bg-onyx-700/60 border border-onyx-600 text-xs font-semibold cursor-pointer hover:bg-onyx-700 transition gap-2">🎙️ Daily voice note worship</label></div>
+            </div>
+          </div>
+          <div class="pt-4 flex items-center justify-between">
+            <button type="button" id="btn-prev-5" class="py-3 px-6 rounded-2xl border border-onyx-600 text-slate-300 hover:text-gold-300 font-cinzel text-xs uppercase tracking-wider transition">❮ Back</button>
+            <button type="button" id="btn-next-5" class="py-3.5 px-8 rounded-2xl btn-gold-shimmer font-cinzel text-xs uppercase tracking-wider font-extrabold flex items-center gap-2 cursor-pointer"><span>Next: Worship Rituals</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></button>
+          </div>
+        </div>
+
+        <!-- STAGE 6: WORSHIP RITUALS -->
+        <div id="step-6" class="step-section hidden-step space-y-6">
+          <div class="pb-3 border-b border-onyx-700">
+            <h2 class="font-cinzel text-lg font-bold text-gold-300 tracking-wide uppercase">Stage 6: Worship Rituals &amp; Schedule</h2>
+            <p class="text-xs text-slate-400 mt-1">Establish the ceremonial rhythm of your obedience and service to the Goddess.</p>
+          </div>
+          <div>
+            <label for="worshipRitual" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Preferred Tribute Ritual <span class="text-gold-400">*</span></label>
+            <select id="worshipRitual" name="worshipRitual" required class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 outline-none gold-border-focus transition">
+              <option value="Morning Wake-Up Tribute (Wake up and immediately pay homage)">🌅 Morning Wake-Up Tribute (Wake up and immediately pay homage)</option>
+              <option value="Payday Drain Ritual (Dedicated percentage surrendered upon receiving wages)" selected>💳 Payday Drain Ritual (Dedicated percentage surrendered upon receiving wages)</option>
+              <option value="Spontaneous Drain Spikes (Surprise drain demands and penalties)">⚡ Spontaneous Drain Spikes (Surprise drain demands and penalties)</option>
+              <option value="Silent Daily Offering (Sending a tribute daily without expecting replies)">🤫 Silent Daily Offering (Consistent tribute without expecting conversation)</option>
+              <option value="Throne Wishlist Gifting (Fulfilling direct items from the Throne wishlist)">🎁 Throne Wishlist Gifting (Fulfilling direct items from the Throne wishlist)</option>
+            </select>
+          </div>
+          <div>
+            <label for="checkInFrequency" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Check-in Frequency <span class="text-gold-400">*</span></label>
+            <select id="checkInFrequency" name="checkInFrequency" required class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 outline-none gold-border-focus transition">
+              <option value="Daily Morning &amp; Evening check-ins" selected>Daily Morning &amp; Evening Check-ins</option>
+              <option value="Only when summoned by the Goddess">Only when summoned by the Goddess</option>
+              <option value="Strictly Scheduled Interaction Hours">Strictly Scheduled Interaction Hours</option>
+              <option value="Silent Presence (No messaging, strictly tribute notifications)">Silent Presence (No messaging, strictly tribute notifications)</option>
+            </select>
+          </div>
+          <div>
+            <label for="sessionPreference" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Interaction &amp; Session Preference <span class="text-gold-400">*</span></label>
+            <select id="sessionPreference" name="sessionPreference" required class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 outline-none gold-border-focus transition">
+              <option value="Silent Tribute (No Chat Needed)" selected>Silent Tribute (No Chat Needed)</option>
+              <option value="Discord Text Chat Sessions">Discord Text Chat Sessions</option>
+              <option value="Discord Audio / Voice Sessions">Discord Audio / Voice Sessions</option>
+              <option value="Daily Routine &amp; Task Check-ins">Daily Routine &amp; Task Check-ins</option>
+            </select>
+          </div>
+          <div>
+            <label for="dreamRitual" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Describe your ultimate worship session with Goddess Dahlia <span class="text-gold-400">*</span></label>
+            <textarea id="dreamRitual" name="dreamRitual" rows="3" required placeholder="Describe in detail what your ultimate tribute moment looks like — where you are, what you're doing, how it feels to send everything to the Goddess..." class="w-full px-4 py-3 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 placeholder-slate-500 outline-none gold-border-focus transition resize-none"></textarea>
+            <p class="text-[10px] text-slate-500 mt-1">Minimum 20 characters required.</p>
+          </div>
+          <div class="pt-4 flex items-center justify-between">
+            <button type="button" id="btn-prev-6" class="py-3 px-6 rounded-2xl border border-onyx-600 text-slate-300 hover:text-gold-300 font-cinzel text-xs uppercase tracking-wider transition">❮ Back</button>
+            <button type="button" id="btn-next-6" class="py-3.5 px-8 rounded-2xl btn-gold-shimmer font-cinzel text-xs uppercase tracking-wider font-extrabold flex items-center gap-2 cursor-pointer"><span>Next: Selfie Verification</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></button>
+          </div>
+        </div>
+
+        <!-- STAGE 7: TRIBUTE PROOF & SELFIE -->
+        <div id="step-7" class="step-section hidden-step space-y-6">
+          <div class="pb-3 border-b border-onyx-700">
+            <h2 class="font-cinzel text-lg font-bold text-gold-300 tracking-wide uppercase">Stage 7: Tribute Proof &amp; Selfie Verification</h2>
+            <p class="text-xs text-slate-400 mt-1">Authenticate your devotion. True submissives prove words with immediate action.</p>
+          </div>
+          <div>
+            <label for="initialTributeStatus" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Initial Tribute Status <span class="text-gold-400">*</span></label>
+            <select id="initialTributeStatus" name="initialTributeStatus" required class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 outline-none gold-border-focus transition">
+              <option value="Initial tribute already sent on Throne" selected>👑 Initial tribute already sent on Throne</option>
+              <option value="Sending initial tribute immediately upon completing this form">⚡ Sending initial tribute immediately upon completing form</option>
+              <option value="Ready to tribute first via Revolut/Crypto on Discord summon">🪙 Ready to tribute via Revolut/Crypto upon Discord summon</option>
+            </select>
+          </div>
+          <div>
+            <label for="tributeTxId" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Throne Order / Transaction ID (Optional)</label>
+            <input type="text" id="tributeTxId" name="tributeTxId" placeholder="e.g. Throne username or order #123456" class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 placeholder-slate-500 outline-none gold-border-focus transition">
+          </div>
+          <!-- SELFIE VERIFICATION BOX -->
+          <div id="selfie-box" class="p-5 rounded-2xl bg-onyx-700/50 border-2 border-gold-500/40 selfie-pulse transition-all duration-500">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-3xl">📸</span>
+              <div>
+                <p class="text-sm font-bold text-gold-300 uppercase tracking-wide">Selfie Verification <span class="text-rose-400 text-xs">(Strictly Mandatory)</span></p>
+                <p class="text-[10px] text-slate-400">You cannot advance without uploading this photo.</p>
+              </div>
+            </div>
+            <div class="p-3 rounded-xl bg-black/50 border border-gold-500/25 mb-4">
+              <p class="text-xs text-slate-300 font-semibold mb-2">📋 Instructions:</p>
+              <ol class="text-xs text-slate-400 space-y-1.5 list-decimal list-inside">
+                <li>Write on a piece of paper (handwritten, clearly legible):</li>
+                <p class="font-bold text-gold-400 italic text-center py-1.5 px-3 rounded-lg bg-gold-500/10 border border-gold-500/20 my-1">"I am obsessed and owned by Goddess Dahlia Star"</p>
+                <li>Hold the paper so it is fully visible in the photo</li>
+                <li>Your face must be clearly visible and recognizable</li>
+                <li>Upload the photo below</li>
+              </ol>
+            </div>
+            <input type="file" id="proofFileInput" accept="image/*" capture="user" class="w-full text-xs text-slate-300 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-gold-500 file:text-black hover:file:bg-gold-400 cursor-pointer mb-3">
+            <div id="selfie-status-pending" class="flex items-center gap-2 text-xs text-slate-500">
+              <span class="w-2.5 h-2.5 rounded-full bg-slate-600 inline-block"></span>
+              No selfie uploaded yet — you cannot proceed without it.
+            </div>
+            <div id="proof-preview-container" class="hidden mt-3">
+              <div class="flex items-center gap-2 text-xs text-emerald-400 font-bold mb-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse inline-block"></span>
+                ✓ Selfie received — Goddess Dahlia will see this. Submission confirmed.
+              </div>
+              <img id="proof-preview-img" src="" class="max-h-52 rounded-xl border-2 border-emerald-500/50 object-contain bg-black/50 p-1 w-full">
+              <p class="text-[10px] text-slate-500 mt-2 text-center italic">Transmitted directly to Goddess Dahlia upon form submission.</p>
+            </div>
+          </div>
+          <div class="pt-4 flex items-center justify-between">
+            <button type="button" id="btn-prev-7" class="py-3 px-6 rounded-2xl border border-onyx-600 text-slate-300 hover:text-gold-300 font-cinzel text-xs uppercase tracking-wider transition">❮ Back</button>
+            <button type="button" id="btn-next-7" class="py-3.5 px-8 rounded-2xl btn-gold-shimmer font-cinzel text-xs uppercase tracking-wider font-extrabold flex items-center gap-2 cursor-pointer"><span>Next: Penalties &amp; Vows</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></button>
+          </div>
+        </div>
+
+        <!-- STAGE 8 (NEW): VOWS, PENALTIES & DISCIPLINARY PROTOCOL -->
+        <div id="step-8" class="step-section hidden-step space-y-6">
+          <div class="pb-3 border-b border-onyx-700">
+            <h2 class="font-cinzel text-lg font-bold text-gold-300 tracking-wide uppercase">Stage 8: Vows, Penalties &amp; Disciplinary Protocol</h2>
+            <p class="text-xs text-slate-400 mt-1">Accept the consequences of hesitation, delay, or failure to honor the Throne.</p>
+          </div>
+          <div>
+            <label for="delayPenalty" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Hesitation &amp; Late Tribute Disciplinary Fine <span class="text-gold-400">*</span></label>
+            <select id="delayPenalty" name="delayPenalty" required class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 outline-none gold-border-focus transition">
+              <option value="50€ Instant Disciplinary Fine to Throne" selected>⚡ 50€ Instant Disciplinary Fine to Throne upon any delay</option>
+              <option value="100€ Disciplinary Surge Tribute">🚨 100€ Disciplinary Surge Tribute for unexcused hesitation</option>
+              <option value="Double Tribute on the next scheduled cycle">✖️ Double tribute required on the subsequent scheduled cycle</option>
+              <option value="24h Silent Denial + 50€ penance offering">🤫 24h Silent Denial + 50€ penance offering</option>
+            </select>
+          </div>
+          <div>
+            <label for="relapseProtocol" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Sub-Drop &amp; Doubt Protocol <span class="text-gold-400">*</span></label>
+            <select id="relapseProtocol" name="relapseProtocol" required class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 outline-none gold-border-focus transition">
+              <option value="Immediately send emergency tribute to snap back into focus" selected>💸 Immediately tribute 50€ to snap back into focus</option>
+              <option value="Confess doubt immediately to the Goddess without hiding">🙏 Confess hesitation immediately without excuses</option>
+              <option value="Request a severe verbal correction session on Discord">⛓️ Request a strict verbal discipline session</option>
+              <option value="Re-read the Sacred Covenant and renew financial submission vows">📜 Re-read the Sacred Covenant and renew financial submission</option>
+            </select>
+          </div>
+          <div>
+            <label for="financialControlDepth" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Ultimate Submission Aspiration <span class="text-gold-400">*</span></label>
+            <select id="financialControlDepth" name="financialControlDepth" required class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 outline-none gold-border-focus transition">
+              <option value="Lifelong loyal devotee with steady monthly tributes" selected>Lifelong loyal devotee with steady monthly tributes</option>
+              <option value="Deep financial control with periodic surprise drains">Deep financial control with periodic surprise drains</option>
+              <option value="Total paycheck oversight upon Goddess summon">Total paycheck oversight upon Goddess summon</option>
+              <option value="Complete financial surrender — living as an owned financial asset">Complete financial surrender — living as an owned asset</option>
+            </select>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-onyx-700/50 border border-gold-500/30 space-y-3">
+            <label class="flex items-start gap-3 cursor-pointer select-none">
+              <input type="checkbox" id="silenceRule" name="silenceRule" required class="mt-1 w-4 h-4 rounded text-gold-500 focus:ring-gold-400 border-onyx-600 bg-onyx-800">
+              <span class="text-xs text-slate-300 leading-relaxed font-medium">
+                <strong class="text-gold-300">Code of Respect &amp; Devotion:</strong> I commit to communicating with Goddess Dahlia with utmost deference, honoring Her authority and time, and following Her guidance with genuine dedication. <span class="text-gold-400">*</span>
+              </span>
+            </label>
+            <div class="border-t border-onyx-600 pt-3">
+              <label class="flex items-start gap-3 cursor-pointer select-none">
+                <input type="checkbox" id="blacklistConsent" name="blacklistConsent" required class="mt-1 w-4 h-4 rounded text-gold-500 focus:ring-gold-400 border-onyx-600 bg-onyx-800">
+                <span class="text-xs text-slate-300 leading-relaxed font-medium">
+                  <strong class="text-rose-400">Permanent Blacklist Clause:</strong> I acknowledge that any chargeback, fake tribute, ghosting, or timewasting will result in immediate permanent expulsion and public blacklisting across findom circles. <span class="text-gold-400">*</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="pt-4 flex items-center justify-between">
+            <button type="button" id="btn-prev-8" class="py-3 px-6 rounded-2xl border border-onyx-600 text-slate-300 hover:text-gold-300 font-cinzel text-xs uppercase tracking-wider transition">❮ Back</button>
+            <button type="button" id="btn-next-8" class="py-3.5 px-8 rounded-2xl btn-gold-shimmer font-cinzel text-xs uppercase tracking-wider font-extrabold flex items-center gap-2 cursor-pointer"><span>Next: Sacred Covenant</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></button>
+          </div>
+        </div>
+
+        <!-- STAGE 9: COVENANT & SUBMIT -->
+        <div id="step-9" class="step-section hidden-step space-y-6">
+          <div class="pb-3 border-b border-onyx-700">
+            <h2 class="font-cinzel text-lg font-bold text-gold-300 tracking-wide uppercase">Stage 9: Devotion Letter &amp; Sacred Covenant</h2>
+            <p class="text-xs text-slate-400 mt-1">Present your solemn statement to Goddess Dahlia and seal your covenant forever.</p>
+          </div>
+          <div>
+            <label for="letter" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Why do you deserve to serve Goddess Dahlia? (Letter of Devotion) <span class="text-gold-400">*</span></label>
+            <textarea id="letter" name="letter" rows="5" required placeholder="Write your solemn letter to the Goddess: express your devotion, what drives you to empty your wallet for Her, why Her Throne is your destination, and what makes you worthy of Her attention..." class="w-full px-4 py-3 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 placeholder-slate-500 outline-none gold-border-focus transition resize-none"></textarea>
+            <p id="letter-counter" class="text-[10px] text-slate-500 mt-1 text-right">0 characters</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-gradient-to-br from-gold-500/10 to-purple-900/30 border border-gold-500/30">
+            <label for="oathRepeat" class="block text-xs font-bold uppercase tracking-wider text-gold-300 mb-2">🗝️ Seal Your Oath — Type This Exactly <span class="text-gold-400">*</span></label>
+            <p class="text-xs text-slate-300 italic font-serif mb-3">"I surrender my wallet, my will, and my worth to Goddess Dahlia Star. I am Her property."</p>
+            <input type="text" id="oathRepeat" name="oathRepeat" required placeholder="Type the oath above exactly as written..." class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 placeholder-slate-500 outline-none gold-border-focus transition">
+            <p id="oath-status" class="text-[10px] mt-1 text-slate-500">Oath not yet confirmed.</p>
+          </div>
+          <div>
+            <label for="boundaries" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Roleplay Boundaries &amp; Hard Limits (Optional)</label>
+            <input type="text" id="boundaries" name="boundaries" placeholder="State any specific hard limits or professional privacy concerns." class="w-full px-4 py-3.5 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm text-slate-100 placeholder-slate-500 outline-none gold-border-focus transition">
+          </div>
+          <div class="p-4 rounded-2xl bg-onyx-700/50 border border-gold-500/25">
+            <label class="flex items-start gap-3 cursor-pointer select-none">
+              <input type="checkbox" id="consent" required class="mt-1 w-4 h-4 rounded text-gold-500 focus:ring-gold-400 border-onyx-600 bg-onyx-800">
+              <span class="text-xs text-slate-300 leading-relaxed font-medium">I solemnly certify under my own responsibility that I am of legal age (<strong class="text-gold-300">18+</strong>), fully lucid, competent, and cognizant of this consensual financial submission dynamic. I understand that all tributes offered to Goddess Dahlia are non-refundable, unconditional offerings. <span class="text-gold-400">*</span></span>
+            </label>
+          </div>
+          <div class="pt-4 flex items-center justify-between">
+            <button type="button" id="btn-prev-9" class="py-3 px-6 rounded-2xl border border-onyx-600 text-slate-300 hover:text-gold-300 font-cinzel text-xs uppercase tracking-wider transition">❮ Back</button>
+            <button type="submit" id="submit-btn" class="py-4 px-8 rounded-2xl btn-gold-shimmer font-cinzel text-xs md:text-sm uppercase tracking-wider font-extrabold flex items-center gap-2 cursor-pointer shadow-2xl">
+              <span>👑 Surrender Submission to the Throne</span>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Success Screen -->
+    <div id="success-container" class="hidden bg-onyx-800/90 rounded-3xl gold-border p-8 md:p-12 text-center backdrop-blur-xl transition-all duration-300 shadow-2xl">
+      <div class="w-20 h-20 bg-gold-500/20 text-gold-400 border border-gold-500/40 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl shadow-gold-500/20">
+        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+      </div>
+      <h2 class="font-cinzel text-2xl md:text-3xl font-extrabold text-gold-300 mb-2 uppercase gold-glow">Protocol Delivered to the Throne</h2>
+      <p class="text-slate-300 text-sm md:text-base max-w-md mx-auto mb-6 font-serif italic leading-relaxed">«Your declaration and submission protocol have been registered. If deemed worthy of my attention, you shall be summoned via Discord. Remember: words are worthless without tribute.»</p>
+      <div class="p-4 bg-onyx-700/60 rounded-2xl border border-gold-500/20 inline-block text-left text-xs text-slate-400 mb-6 space-y-1 font-mono">
+        <p><strong>Protocol ID:</strong> <span id="success-id" class="text-gold-400 font-bold"></span></p>
+        <p><strong>Timestamp:</strong> <span id="success-time" class="text-slate-300"></span></p>
+      </div>
+      <div class="mt-2 mb-8 p-6 bg-onyx-900/90 rounded-2xl border border-gold-500/40 shadow-2xl">
+        <p class="text-xs uppercase font-cinzel font-bold text-gold-300 tracking-widest mb-1">Prove Your Submission Immediately</p>
+        <p class="text-xs text-slate-400 mb-4">True devotees seal their submission with an immediate tribute on Throne.</p>
+        <a id="throne-link-btn" href="https://throne.me/" target="_blank" class="inline-flex items-center justify-center gap-3 py-4 px-8 rounded-2xl btn-gold-shimmer font-cinzel text-xs md:text-sm uppercase tracking-wider font-extrabold shadow-2xl hover:scale-105 transition-transform w-full sm:w-auto">
+          <span>👑 PAY INITIAL TRIBUTE ON THRONE</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+      </div>
+      <div>
+        <button id="reset-btn" class="px-6 py-2.5 rounded-xl border border-onyx-600 text-slate-300 hover:text-gold-300 hover:border-gold-500/40 text-xs font-semibold uppercase tracking-wider transition">Submit Another Protocol</button>
+      </div>
+    </div>
+
+    <footer class="mt-8 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-cinzel tracking-wider text-[11px] text-slate-400">© 2026 GODDESS DAHLIA • ALL RIGHTS RESERVED</p>
+      <p>
+        <a href="https://throne.me/" target="_blank" class="text-gold-400 hover:text-gold-300 transition mx-2 font-bold">Throne Wishlist</a> •
+        <a href="/admin.html" class="text-slate-500 hover:text-gold-400 transition mx-2">Throne Sanctuary Dashboard</a>
+      </p>
+    </footer>
+
+  </div>
+
+  <script src="/js/app.js?v=final9"></script>
+</body>
+</html>

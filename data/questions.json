@@ -1,0 +1,31 @@
+{
+  "title": "PROTOCOL OF SUBMISSION & DEVOTION",
+  "subtitle": "Goddess Dahlia • Financial & Mental Sovereignty",
+  "description": "Only those prepared to surrender their means and complete devotion may capture the Throne's attention. Complete this protocol with absolute honesty.",
+  "steps": [
+    {
+      "step": 1,
+      "id": "identity",
+      "title": "Identity & Persona",
+      "fields": ["slaveName", "discordTag", "altContact", "age", "occupation"]
+    },
+    {
+      "step": 2,
+      "id": "finances",
+      "title": "Financial Capacity & Tribute Methods",
+      "fields": ["monthlyBudget", "paymentMethods", "tributeFrequency"]
+    },
+    {
+      "step": 3,
+      "id": "devotion_dynamics",
+      "title": "Submission Style & Psychological Triggers",
+      "fields": ["devotionType", "weaknesses", "sessionPreference"]
+    },
+    {
+      "step": 4,
+      "id": "covenant",
+      "title": "Devotion Letter & Sacred Covenant",
+      "fields": ["letter", "boundaries", "consent"]
+    }
+  ]
+}

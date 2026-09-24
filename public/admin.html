@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Throne Sanctuary Dashboard • Goddess Dahlia</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            cinzel: ['"Cinzel"', 'serif'],
+            sans: ['"Montserrat"', 'sans-serif'],
+          },
+          colors: {
+            gold: {
+              400: '#eab308',
+              500: '#d4af37',
+              600: '#ca8a04',
+            },
+            onyx: {
+              900: '#070709',
+              800: '#0f0f13',
+              700: '#17171d',
+              600: '#23232b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #070709;
+      color: #f1f5f9;
+      min-height: 100vh;
+    }
+    .gold-border {
+      border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased min-h-screen">
+
+  <!-- Login View -->
+  <div id="login-view" class="flex items-center justify-center min-h-screen p-4">
+    <div class="w-full max-w-md bg-onyx-800 rounded-3xl gold-border p-8 shadow-2xl">
+      <div class="w-12 h-12 rounded-2xl bg-gold-500/20 text-gold-400 border border-gold-500/30 flex items-center justify-center mb-4">
+        👑
+      </div>
+      <h1 class="font-cinzel text-xl font-bold text-gold-300 mb-1 tracking-wider uppercase">Throne Sanctuary Access</h1>
+      <p class="text-xs text-slate-400 mb-6">Enter the master administrative key to inspect submissive intakes and configure Discord.</p>
+      
+      <div id="login-error" class="hidden mb-4 p-3 bg-rose-950/80 border border-rose-800 text-rose-300 text-xs rounded-xl font-semibold"></div>
+
+      <form id="login-form" class="space-y-4">
+        <div>
+          <label for="password" class="block text-[10px] font-bold uppercase text-slate-400 tracking-wider mb-1.5">Master Key</label>
+          <input type="password" id="password" required placeholder="Default: admin123"
+            class="w-full px-4 py-3 rounded-xl bg-onyx-700 border border-onyx-600 focus:border-gold-500 text-sm text-slate-100 outline-none transition">
+        </div>
+        <button type="submit" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-gold-500 to-amber-500 hover:from-gold-400 hover:to-amber-400 text-black font-bold text-xs uppercase tracking-wider shadow-lg transition">
+          Enter Sanctuary
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dashboard View (Protected) -->
+  <div id="dashboard-view" class="hidden">
+    
+    <header class="bg-onyx-800/90 border-b border-onyx-700/80 sticky top-0 z-30 backdrop-blur-md">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-gold-600 to-purple-600 text-white flex items-center justify-center font-cinzel font-bold text-sm shadow-md">
+            👑
+          </div>
+          <div>
+            <h1 class="font-cinzel text-sm md:text-base font-bold text-gold-300 leading-none tracking-wider uppercase">Goddess Dahlia • Throne</h1>
+            <p class="text-[11px] text-slate-400 mt-0.5">Devotee Intake & Discord Dispatch Console</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="/" target="_blank" class="text-xs font-semibold text-slate-300 hover:text-gold-400 flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-onyx-600 bg-onyx-700/60 hover:bg-onyx-700 transition">
+            <span>View Protocol Form</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+          </a>
+          <button id="logout-btn" class="text-xs font-semibold text-rose-400 hover:text-rose-300 px-3 py-1.5 rounded-lg hover:bg-rose-950/40 transition">
+            Log Out
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+      
+      <div id="toast" class="hidden fixed bottom-6 right-6 z-50 p-4 rounded-2xl shadow-2xl border text-xs font-bold uppercase tracking-wider transition-all"></div>
+
+      <!-- Discord Webhook Configuration Card -->
+      <div class="bg-onyx-800 rounded-3xl gold-border p-6 md:p-8 shadow-xl">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-onyx-700">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-[#5865F2]/20 text-[#5865F2] border border-[#5865F2]/30 flex items-center justify-center">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 class="font-cinzel text-base md:text-lg font-bold text-slate-100 uppercase tracking-wide">Discord Webhook Integration</h2>
+                <span id="webhook-badge" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase bg-amber-950 text-amber-400 border border-amber-800">
+                  Not Configured
+                </span>
+              </div>
+              <p class="text-xs text-slate-400 mt-0.5">Real-time instant embeds delivered straight to your private Discord channel</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button id="test-discord-btn" class="px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xl bg-onyx-700 hover:bg-onyx-600 text-slate-200 border border-onyx-600 transition">
+              Dispatch Test Embed
+            </button>
+            <button id="save-discord-btn" class="px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xl bg-gradient-to-r from-gold-500 to-amber-500 hover:from-gold-400 hover:to-amber-400 text-black transition shadow-md">
+              Save Webhook
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-6 space-y-4">
+          <div>
+            <label for="webhook-url" class="block text-[11px] font-bold uppercase text-slate-300 tracking-wider mb-1">
+              Discord Channel Webhook URL
+            </label>
+            <input type="url" id="webhook-url" placeholder="https://discord.com/api/webhooks/..."
+              class="w-full px-4 py-3 rounded-xl bg-onyx-700/80 border border-onyx-600 text-sm font-mono text-gold-300 outline-none focus:border-gold-500 transition">
+          </div>
+
+          <details class="text-xs text-slate-400 bg-onyx-700/40 rounded-xl p-3.5 border border-onyx-600 cursor-pointer">
+            <summary class="font-bold text-slate-200 select-none">
+              💡 How to generate your Discord Webhook URL in 30 seconds
+            </summary>
+            <ol class="list-decimal list-inside mt-3 space-y-1.5 pl-2 text-slate-300 leading-relaxed">
+              <li>Open Discord, right-click your private notifications channel and click <strong>Edit Channel</strong> ⚙️.</li>
+              <li>Go to <strong>Integrations</strong> $\rightarrow$ <strong>Webhooks</strong> $\rightarrow$ click <strong>New Webhook</strong>.</li>
+              <li>Click <strong>Copy Webhook URL</strong>, paste it into the field above and click <strong>Save Webhook</strong>!</li>
+            </ol>
+          </details>
+        </div>
+      </div>
+
+      <!-- Devotees Submissions Table -->
+      <div class="bg-onyx-800 rounded-3xl gold-border p-6 md:p-8 shadow-xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-onyx-700">
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 class="font-cinzel text-base md:text-lg font-bold text-slate-100 uppercase tracking-wide">Recorded Devotee Intakes</h2>
+              <span id="submissions-count" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-gold-500/20 text-gold-400 border border-gold-500/30">0</span>
+            </div>
+            <p class="text-xs text-slate-400 mt-0.5">Comprehensive dossier of all submissives who have offered devotion</p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button id="refresh-btn" class="p-2 text-slate-400 hover:text-gold-400 bg-onyx-700 border border-onyx-600 rounded-xl transition" title="Refresh">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
+            </button>
+            <button id="export-csv-btn" class="flex items-center gap-1.5 px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white transition shadow-md">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+              <span>Export CSV / Excel</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="mt-6 overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-300">
+            <thead class="bg-onyx-700/60 uppercase text-[10px] font-bold text-slate-400 border-y border-onyx-600">
+              <tr>
+                <th class="py-3 px-4">Date & ID</th>
+                <th class="py-3 px-4">Slave / Devotee</th>
+                <th class="py-3 px-4">Discord & Contact</th>
+                <th class="py-3 px-4">Tribute Budget</th>
+                <th class="py-3 px-4">Submission Style</th>
+                <th class="py-3 px-4 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="submissions-table-body" class="divide-y divide-onyx-700/60 font-sans">
+              <!-- Dynamically rendered -->
+            </tbody>
+          </table>
+          <div id="no-submissions" class="hidden py-12 text-center text-slate-500 text-sm">
+            No devotees have submitted to the Throne yet. Share the protocol link to begin intake.
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Detail Modal -->
+  <div id="detail-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="bg-onyx-800 rounded-3xl max-w-xl w-full p-6 md:p-8 gold-border shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-4 border-b border-onyx-700 mb-6">
+        <div>
+          <h3 class="font-cinzel text-lg font-bold text-gold-300 uppercase tracking-wider">Devotee Protocol Dossier</h3>
+          <p id="modal-sub-id" class="text-xs text-slate-400 font-mono mt-0.5"></p>
+        </div>
+        <button id="close-modal-btn" class="p-1.5 text-slate-400 hover:text-slate-200 rounded-lg hover:bg-onyx-700">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <div id="modal-content" class="space-y-4 text-xs md:text-sm text-slate-300">
+        <!-- Dynamically rendered -->
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>
